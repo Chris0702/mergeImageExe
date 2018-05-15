@@ -17,17 +17,27 @@ int main(int argc, char* argv[])
 {
 	TextProcess textProcess =TextProcess();
 	textProcess.test();
-	Image image = Image("D:/chris-work/mergeImageExe/image/test.png");
-	image.showImage();
-	
+	//Image image = Image("D:/chris-work/mergeImageExe/image/test.png");
+	//image.showImage();
+	vector<string> mergeImageBase;
+	string mergeImageTarget="";
 	cout<<"argv\n";
 	cout<<argv<<"\n";
 	cout<<"argc\n";
 	cout<<argc<<"\n";
 	
+	if(argc>1){
+		mergeImageBase=textProcess.getSplitStr(argv[1]);
+		string tmp(argv[2]);
+		mergeImageTarget=tmp;
+	}
+	
 	for(int i=0;i<argc;i++){
 		cout<<i<<"\n";
 		cout<<argv[i]<<"\n";
+
+
+
 	}
 	
 	/*
@@ -36,7 +46,7 @@ int main(int argc, char* argv[])
 	wcout<<argv[2];
 	}
 	*/
-	waitKey(0); 
+	//waitKey(0); 
 
 	/*
 	string mergeBaseStr = textProcess.wchar_t2String(argv[1]);
