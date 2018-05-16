@@ -17,6 +17,8 @@ MergeAlgorithm::MergeAlgorithm(vector<Image> mergeImageBase,Image mergeImageTarg
 void MergeAlgorithm::Exe() { 
 	cout<<"exe";
 	mergeImageTarget.info();
-	mergeImageTarget.resize(500,600);
+	vector<RGB> test = mergeImageTarget.getRGB();
+	mergeImageTarget.setRGB(test);
+	//mergeImageTarget.resize(500,600);
 	mergeImageTarget.showImage();
 }
