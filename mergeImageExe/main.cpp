@@ -6,6 +6,7 @@
 #include <string> 
 #include "TextProcess.h"
 #include "Image.h"
+#include "MergeAlgorithm.h"
 #include <opencv2/core/core.hpp>  
 #include <opencv2/highgui/highgui.hpp>  
 
@@ -32,15 +33,14 @@ vector<Image> getMergeImageBase(vector<string> mergeImageBasePath){
 int main(int argc, char* argv[])
 {
 	if(argc<=1){
-		cout<<"111";
-		system("pause");
+		cout<<"沒給參數";
 		return 0;
 	}
 	cout<<"argv\n";
 	cout<<argv<<"\n";
 	cout<<"argc\n";
 	cout<<argc<<"\n";
-	TextProcess textProcess =TextProcess();
+	TextProcess textProcess;
 	textProcess.test();
 	string dirname=textProcess.getDirnamePath(argv[0]);
 	string mergeImageDir=textProcess.getDirnamePath(dirname)+"\\client";
@@ -48,10 +48,10 @@ int main(int argc, char* argv[])
 	mergeImageTargetPath=mergeImageDir+"\\"+mergeImageTargetPath;
 	vector<string> mergeImageBasePath = getMergeImageBasePath(mergeImageDir,argv[1]);
 	Image mergeImageTarget = Image(mergeImageTargetPath);
-	mergeImageTarget.showImage();
 	vector<Image> mergeImageBase=getMergeImageBase(mergeImageBasePath);
-
-	waitKey(0); 
+	MergeAlgorithm mergeAlgorithm(mergeImageBase,mergeImageTarget);
+	mergeAlgorithm.Exe();
+	
 
 	system("pause");
 	return 0;
