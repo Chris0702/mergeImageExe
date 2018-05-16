@@ -1,7 +1,5 @@
 // mergeImageExe.cpp : Defines the entry point for the console application.
 //
-
-
 #include <cstdlib>
 #include <iostream>
 #include <stdio.h>
@@ -13,57 +11,47 @@
 
 using namespace std;
 
+vector<string> getMergeImageBasePath(string dirname,char* localStr){
+	TextProcess textProcess =TextProcess();
+	vector<string> mergeImageBasePath=textProcess.getSplitStr(localStr);
+	for(int i=0;i<mergeImageBasePath.size();i++){
+		mergeImageBasePath[i]=dirname+"\\"+mergeImageBasePath[i];
+	}
+	return mergeImageBasePath;
+}
+
+vector<Image> getMergeImageBase(vector<string> mergeImageBasePath){
+	vector<Image> mergeImageBase;
+	for(int i=0;i<mergeImageBasePath.size();i++){
+		Image item = Image(mergeImageBasePath[i]);
+		mergeImageBase.push_back(item);
+	}
+	return mergeImageBase;
+}
+
 int main(int argc, char* argv[])
 {
-	TextProcess textProcess =TextProcess();
-	textProcess.test();
-	//Image image = Image("D:/chris-work/mergeImageExe/image/test.png");
-	//image.showImage();
-	vector<string> mergeImageBase;
-	string mergeImageTarget="";
+	if(argc<=1){
+		cout<<"111";
+		system("pause");
+		return 0;
+	}
 	cout<<"argv\n";
 	cout<<argv<<"\n";
 	cout<<"argc\n";
 	cout<<argc<<"\n";
-	
-	if(argc>1){
-		mergeImageBase=textProcess.getSplitStr(argv[1]);
-		string tmp(argv[2]);
-		mergeImageTarget=tmp;
-	}
-	
-	for(int i=0;i<argc;i++){
-		cout<<i<<"\n";
-		cout<<argv[i]<<"\n";
+	TextProcess textProcess =TextProcess();
+	textProcess.test();
+	string dirname=textProcess.getDirnamePath(argv[0]);
+	string mergeImageDir=textProcess.getDirnamePath(dirname)+"\\client";
+	string mergeImageTargetPath(argv[2]);
+	mergeImageTargetPath=mergeImageDir+"\\"+mergeImageTargetPath;
+	vector<string> mergeImageBasePath = getMergeImageBasePath(mergeImageDir,argv[1]);
+	Image mergeImageTarget = Image(mergeImageTargetPath);
+	mergeImageTarget.showImage();
+	vector<Image> mergeImageBase=getMergeImageBase(mergeImageBasePath);
 
-
-
-	}
-	
-	/*
-	if(argc>1){
-	wcout<<argv[1];
-	wcout<<argv[2];
-	}
-	*/
-	//waitKey(0); 
-
-	/*
-	string mergeBaseStr = textProcess.wchar_t2String(argv[1]);
-	string mergeTargetStr = textProcess.wchar_t2String(argv[2]);
-	cout<<mergeBaseStr<<"\n";
-	cout<<mergeTargetStr<<"\n";
 	waitKey(0); 
-	*/
-
-
-	/*
-	for(int i=0;i<argc;i++){
-		cout<<i<<"\n";
-		wcout<<argv[i]<<"\n";
-		cout<<textProcess.wchar_t2String(argv[i])<<"\n";
-	}
-	*/
 
 	system("pause");
 	return 0;

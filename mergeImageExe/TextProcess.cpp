@@ -19,6 +19,38 @@ string TextProcess::wchar_t2String(wchar_t* txt) {
 	return str;
 }
 
+string TextProcess::getDirnamePath(char* exePath)
+{
+	string dirnamePath(exePath);
+	int resultIndex=0;
+	for(int i=dirnamePath.length()-1;i>=0;i--)
+	{
+		if(dirnamePath[i]=='\\'||dirnamePath[i]=='/')
+		{
+			resultIndex=i;
+			i=-1;
+		}
+	}
+	dirnamePath=dirnamePath.substr(0,resultIndex);
+	return dirnamePath;
+}
+
+string TextProcess::getDirnamePath(string exePath)
+{
+	string dirnamePath=exePath;
+	int resultIndex=0;
+	for(int i=dirnamePath.length()-1;i>=0;i--)
+	{
+		if(dirnamePath[i]=='\\'||dirnamePath[i]=='/')
+		{
+			resultIndex=i;
+			i=-1;
+		}
+	}
+	dirnamePath=dirnamePath.substr(0,resultIndex);
+	return dirnamePath;
+}
+
 vector<string> TextProcess::getSplitStr(char* txt) { 
 	vector<string> result;
 	string txtStr(txt);

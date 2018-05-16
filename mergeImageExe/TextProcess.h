@@ -8,5 +8,7 @@ public:
 	TextProcess();
 	void test();
 	string wchar_t2String(wchar_t*);
+	string getDirnamePath(char*);
+	string getDirnamePath(string);
 	vector<string> getSplitStr(char*);
 };
