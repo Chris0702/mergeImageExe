@@ -4,4 +4,8 @@
     <LocalDebuggerCommandArguments>mergeImage/1.jpg,mergeImage/10.jpg,mergeImage/11.jpg,mergeImage/12.jpg,mergeImage/2.jpg,mergeImage/3.jpg,mergeImage/4.jpg,mergeImage/5.jpg,mergeImage/6.jpg,mergeImage/7.jpg,mergeImage/8.jpg,mergeImage/9.jpg,mergeImage/Jellyfish.jpg mergeImage/6.jpg</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommandArguments>mergeImage/1.jpg,mergeImage/10.jpg,mergeImage/11.jpg,mergeImage/12.jpg,mergeImage/2.jpg,mergeImage/3.jpg,mergeImage/4.jpg,mergeImage/5.jpg,mergeImage/6.jpg,mergeImage/7.jpg,mergeImage/8.jpg,mergeImage/9.jpg,mergeImage/Jellyfish.jpg mergeImage/6.jpg</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

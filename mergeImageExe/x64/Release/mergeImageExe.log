@@ -1,0 +1,26 @@
+﻿Build started 2018/5/17 下午 02:41:34.
+     1>Project "D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\mergeImageExe\mergeImageExe.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Release\mergeImageExe.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /IC:\opencv\build\include\opencv2 /IC:\opencv\build\include\opencv /IC:\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt MergeAlgorithm.cpp
+         MergeAlgorithm.cpp
+     1>MergeAlgorithm.cpp(60): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\x64\Release\mergeImageExe.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv\build\x64\vc11\lib opencv_calib3d249.lib opencv_contrib249.lib opencv_core249.lib opencv_features2d249.lib opencv_flann249.lib opencv_gpu249.lib opencv_highgui249.lib opencv_imgproc249.lib opencv_legacy249.lib opencv_ml249.lib opencv_nonfree249.lib opencv_objdetect249.lib opencv_photo249.lib opencv_stitching249.lib opencv_ts249.lib opencv_video249.lib opencv_videostab249.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\mergeImageExe.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\x64\Release\mergeImageExe.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\x64\Release\mergeImageExe.lib" /MACHINE:X64 x64\Release\Image.obj
+         x64\Release\main.obj
+         x64\Release\MergeAlgorithm.obj
+         x64\Release\TextProcess.obj
+         Generating code
+         Finished generating code
+         mergeImageExe.vcxproj -> D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\x64\Release\mergeImageExe.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\x64\Release\mergeImageExe.exe;#1" /manifest x64\Release\mergeImageExe.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\mergeImageExe.unsuccessfulbuild".
+         Touching "x64\Release\mergeImageExe.lastbuildstate".
+     1>Done Building Project "D:\chris-work\mergeImageExe\mergeImageExe2\mergeImageExe\mergeImageExe\mergeImageExe.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.87

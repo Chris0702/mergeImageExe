@@ -86,7 +86,7 @@ void MergeAlgorithm::Exe() {
 	mergeImageAll();
 	mergeImageTarget.setRGB(mergeImageTargetRGB);
 	stop = clock(); //µ²§ô®É¶¡
-
+	cout << double(stop - start) / CLOCKS_PER_SEC <<endl;
 
 	//mergeImageTarget.resize(500,600);
 	mergeImageTarget.showImage();
