@@ -19,14 +19,19 @@ struct RGB{
 class Image
 {
 	Mat img;
-	
+	string savePath;
+	string orgPath;
+
 public:
 	Image();
 	Image(string);
 	void resize(int width,int height);
 	void showImage();
+	void saveImage();
+	void saveImage(string);
 	vector<RGB> getRGB();
 	void setRGB(vector<RGB>);
 	void info();
+	void setSavePath(string);
 
 };

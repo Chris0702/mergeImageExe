@@ -36,24 +36,18 @@ int main(int argc, char* argv[])
 		cout<<"沒給參數";
 		return 0;
 	}
-	cout<<"argv\n";
-	cout<<argv<<"\n";
-	cout<<"argc\n";
-	cout<<argc<<"\n";
 	TextProcess textProcess;
-	textProcess.test();
 	string dirname=textProcess.getDirnamePath(argv[0]);
 	string mergeImageDir=textProcess.getDirnamePath(dirname)+"\\client";
 	string mergeImageTargetPath(argv[2]);
+	string savePath = dirname+"\\merge.jpg";
 	mergeImageTargetPath=mergeImageDir+"\\"+mergeImageTargetPath;
 	vector<string> mergeImageBasePath = getMergeImageBasePath(mergeImageDir,argv[1]);
 	Image mergeImageTarget = Image(mergeImageTargetPath);
 	vector<Image> mergeImageBase=getMergeImageBase(mergeImageBasePath);
-	MergeAlgorithm mergeAlgorithm(mergeImageBase,mergeImageTarget);
+	MergeAlgorithm mergeAlgorithm(mergeImageBase,mergeImageTarget,savePath);
 	mergeAlgorithm.Exe();
-	
-
-	system("pause");
+	//system("pause");
 	return 0;
 }
 

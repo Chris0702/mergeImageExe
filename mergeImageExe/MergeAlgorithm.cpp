@@ -9,20 +9,21 @@ MergeAlgorithm::MergeAlgorithm(){
 
 }
 
-MergeAlgorithm::MergeAlgorithm(vector<Image> mergeImageBase,Image mergeImageTarget){
+MergeAlgorithm::MergeAlgorithm(vector<Image> mergeImageBase,Image mergeImageTarget,string savePath){
 	this->mergeImageBase=mergeImageBase;
 	this->mergeImageTarget=mergeImageTarget;
-	widthCount=4;
-	heightCount=4;
+	this->savePath=savePath;
+	widthCount=8;
+	heightCount=8;
 	bigImgWidth=400;
 	bigImgHeight=600;
+	weights=0.7;
 	smallImgWidth=bigImgWidth/widthCount;
 	smallImgHeight=bigImgHeight/heightCount;
 	initImageSizeAll();
 }
 
 void MergeAlgorithm::initImageSizeAll() { 
-	cout<<"initImageSizeAll\n";
 	for(int i=0;i<mergeImageBase.size();i++){
 		mergeImageBase[i].resize(smallImgWidth,smallImgHeight);
 	}
@@ -38,25 +39,18 @@ void MergeAlgorithm::makeUpMergeImageBase(){
 	while(mergeImageBase.size()<needBaseCount){
 		Image newBase = mergeImageBase[newBaseIndex%needBaseCount];
 		mergeImageBase.push_back(newBase);
+		newBaseIndex++;
 	}
 }
 
 void MergeAlgorithm::mergeImageOne(Image srcImg,int offsetX,int offsetY) { 
 	vector<RGB> srcImgRGB=srcImg.getRGB();
-	/*
-	cout<<"mergeImageOne offsetX\n";
-	cout<<offsetX<<"\n";
-	cout<<"mergeImageOne  offsetY\n";
-	cout<<offsetY<<"\n";
-	*/
-
-	
 	for(int srcIndex=0;srcIndex<srcImgRGB.size();srcIndex++){
 		for(int targetIndex=0;targetIndex<mergeImageTargetRGB.size();targetIndex++){
 			if(srcImgRGB[srcIndex].x+offsetX==mergeImageTargetRGB[targetIndex].x&&srcImgRGB[srcIndex].y+offsetY==mergeImageTargetRGB[targetIndex].y){
-				mergeImageTargetRGB[targetIndex].b=(mergeImageTargetRGB[targetIndex].b+srcImgRGB[srcIndex].b)/2;
-				mergeImageTargetRGB[targetIndex].g=(mergeImageTargetRGB[targetIndex].g+srcImgRGB[srcIndex].g)/2;
-				mergeImageTargetRGB[targetIndex].r=(mergeImageTargetRGB[targetIndex].r+srcImgRGB[srcIndex].r)/2;
+				mergeImageTargetRGB[targetIndex].b=mergeImageTargetRGB[targetIndex].b*weights+srcImgRGB[srcIndex].b*(1-weights);
+				mergeImageTargetRGB[targetIndex].g=mergeImageTargetRGB[targetIndex].g*weights+srcImgRGB[srcIndex].g*(1-weights);
+				mergeImageTargetRGB[targetIndex].r=mergeImageTargetRGB[targetIndex].r*weights+srcImgRGB[srcIndex].r*(1-weights);
 				targetIndex=mergeImageTargetRGB.size();
 			}
 		}
@@ -79,15 +73,13 @@ void MergeAlgorithm::mergeImageAll() {
 
 void MergeAlgorithm::Exe() { 
 	start = clock(); //開始時間
-	cout<<"exe\n";
-	mergeImageTarget.info();
+	//mergeImageTarget.info();
 	mergeImageTargetRGB = mergeImageTarget.getRGB();
 	makeUpMergeImageBase();
 	mergeImageAll();
 	mergeImageTarget.setRGB(mergeImageTargetRGB);
 	stop = clock(); //結束時間
 	cout << double(stop - start) / CLOCKS_PER_SEC <<endl;
-
-	//mergeImageTarget.resize(500,600);
-	mergeImageTarget.showImage();
+	mergeImageTarget.saveImage(savePath);
+	//mergeImageTarget.showImage();
 }

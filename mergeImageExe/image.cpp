@@ -5,11 +5,15 @@ using namespace cv;
 
 Image::Image(){
 	img= imread("");
+	savePath = "";
+	orgPath="";
 }
 
 
 Image::Image(string imgPath){
 	img= imread(imgPath);
+	savePath = "";
+	orgPath=imgPath;
 }
 
 void Image::resize(int width,int height) {
@@ -30,18 +34,6 @@ vector<RGB> Image::getRGB() {
 			rgb.b=pt[k];
 			rgb.g=pt[k+1];
 			rgb.r=pt[k+2];
-			/*
-			if(k<50){
-				rgb.b=255;
-				rgb.g=0;
-				rgb.r=0;
-			}else{
-				//cout<<11<<"\n";
-				rgb.b=pt[k];
-				rgb.g=pt[k+1];
-				rgb.r=pt[k+2];
-			}
-			*/
 			rgb.x=i;
 			rgb.y=j;
 			result.push_back(rgb);
@@ -79,8 +71,19 @@ void Image::showImage() {
 	waitKey(0);  
 }
 
+void Image::setSavePath(string savePath) { 
+	this->savePath=savePath;
+}
+
+void Image::saveImage(string savePath) { 
+	imwrite( savePath, img );
+}
+
+void Image::saveImage() { 
+	imwrite( savePath, img );
+}
+
 void Image::info() { 
-	//int a = img.col;
 	cout<<"========cols=========\n";
 	cout<<img.cols<<"\n";
 	cout<<"========rows=========\n";
@@ -93,7 +96,5 @@ void Image::info() {
 	cout<<img.channels()<<"\n";
 	cout<<"========total=========\n";
 	cout<<img.total()<<"\n";
-	//img.
-
 }
 

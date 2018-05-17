@@ -9,12 +9,14 @@ class MergeAlgorithm
 {
 public:
 	MergeAlgorithm();
-	MergeAlgorithm(vector<Image> mergeImageBase,Image mergeImageTarget);
+	MergeAlgorithm(vector<Image> mergeImageBase,Image mergeImageTarget,string savePath);
 	void Exe();
 	void test();
 
 private:
 	clock_t start, stop;
+	double weights;
+	string savePath;
 	vector<RGB> mergeImageTargetRGB;
 	vector<Image> mergeImageBase;
 	Image mergeImageTarget;
