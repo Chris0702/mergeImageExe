@@ -15,5 +15,7 @@ public:
 private:
 	vector<Image> mergeImageBase;
 	Image mergeImageTarget;
-	
+	int bigImgWidth,bigImgHeight,smallImgWidth,smallImgHeight,widthCount,heightCount;
+	void initImageSizeAll();
+	void mergeImageOne(Image srcImg,int targetX,int targetY);
 };
