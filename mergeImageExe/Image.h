@@ -12,8 +12,8 @@ struct RGB{
 	int r;
 	int g;
 	int b;
-	int x;
-	int y;
+	int x;//height
+	int y;//width
 };
 
 class Image
