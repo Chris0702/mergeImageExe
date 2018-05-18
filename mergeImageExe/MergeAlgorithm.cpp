@@ -13,8 +13,8 @@ MergeAlgorithm::MergeAlgorithm(vector<Image> mergeImageBase,Image mergeImageTarg
 	this->mergeImageBase=mergeImageBase;
 	this->mergeImageTarget=mergeImageTarget;
 	this->savePath=savePath;
-	widthCount=8;
-	heightCount=8;
+	widthCount=10;
+	heightCount=10;
 	bigImgWidth=400;
 	bigImgHeight=600;
 	weights=0.7;

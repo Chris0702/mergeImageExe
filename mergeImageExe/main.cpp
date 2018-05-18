@@ -41,6 +41,9 @@ int main(int argc, char* argv[])
 	string mergeImageDir=textProcess.getDirnamePath(dirname)+"\\client";
 	string mergeImageTargetPath(argv[2]);
 	string savePath = dirname+"\\merge.jpg";
+	if(argc>=4){
+		savePath=argv[3];
+	}
 	mergeImageTargetPath=mergeImageDir+"\\"+mergeImageTargetPath;
 	vector<string> mergeImageBasePath = getMergeImageBasePath(mergeImageDir,argv[1]);
 	Image mergeImageTarget = Image(mergeImageTargetPath);
