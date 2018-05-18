@@ -31,7 +31,7 @@ vector<Image> getMergeImageBase(vector<string> mergeImageBasePath){
 }
 
 int main(int argc, char* argv[])
-{
+{	
 	if(argc<=1){
 		cout<<"沒給參數";
 		return 0;

@@ -5,7 +5,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerCommandArguments>mergeImage/1.jpg,mergeImage/10.jpg,mergeImage/11.jpg,mergeImage/12.jpg,mergeImage/2.jpg,mergeImage/3.jpg,mergeImage/4.jpg,mergeImage/5.jpg,mergeImage/6.jpg,mergeImage/7.jpg,mergeImage/8.jpg,mergeImage/9.jpg mergeImage/22.jpg</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>mergeImage/10.jpg,mergeImage/11.jpg,mergeImage/17.jpg,mergeImage/16.jpg mergeImage/21.jpg D:\chris-work\demoServer\client\mergeImageResult\3739501487_mergeImage.jpg</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
